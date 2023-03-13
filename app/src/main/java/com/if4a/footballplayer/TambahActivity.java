@@ -31,23 +31,19 @@ public class TambahActivity extends AppCompatActivity {
                 nomor = etnomor.getText().toString();
                 klub = etklub.getText().toString();
 
-                if (nama.trim().equals("")){
+                if (nama.trim().equals("")) {
                     etnama.setError("Nama tidak boleh kosong");
-                }
-                else if (nomor.trim().isEmpty()){
+                } else if (nomor.trim().isEmpty()) {
                     etnomor.setError("Nomor Punggung tidak boleh kosong");
-                }
-                else if (klub.trim().isEmpty()) {
+                } else if (klub.trim().isEmpty()) {
                     etklub.setError("Klub tidak boleh kosong");
-                }
-                else {
+                } else {
                     long eks = myDB.tambahPlayer(nama, nomor, klub);
 
-                    if (eks == -1){
+                    if (eks == -1) {
                         Toast.makeText(TambahActivity.this, "Gagal menambah data", Toast.LENGTH_SHORT).show();
                         etnama.requestFocus();
-                    }
-                    else {
+                    } else {
                         Toast.makeText(TambahActivity.this, "Berhasil menambah data", Toast.LENGTH_SHORT).show();
                         finish();
                     }
